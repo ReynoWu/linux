@@ -2,7 +2,7 @@
 #include <linux/module.h>
 #include <linux/fs.h>
 
-#define MYMAJOR 90
+#define MYMAJOR 64
 
 /* Module Information */
 
@@ -44,7 +44,7 @@ static int __init hello_kernel_init(void)
     }
  return 0;
 }
-static void __init hello_kernel_exit(void)
+static void __exit hello_kernel_exit(void)
 {
     unregister_chrdev(MYMAJOR, "my_dev_nr");
     printk("hello kernel exit\n");
