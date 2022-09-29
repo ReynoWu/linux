@@ -129,9 +129,11 @@ int main()
 {
   uint8_t tx_data[64]={0x1,0x2};
   uint8_t rx_data[64]={0};
+  uint32_t i;
+  
   memset(tx_data,0xAA,64);
   SPI_Open();
-  while(1)
+  for (i = 0; i < 10; i++)
   {
     SPI_Transfer(tx_data,rx_data,64);
     printf("Send spi message OK %d\n",rx_data[0]);
